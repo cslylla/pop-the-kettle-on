@@ -48,17 +48,47 @@ elif month == "09" or month == "10" or month == "11":
     spices = autumn_spices
 
 # Selecting ingridients
+result = []
 
 
-def selector(array):
+def select_ingredients(array):
     random_num = random.randint(0, len(array)-1)
     ingredient = array[random_num]
-    return ingredient
+    result.append(ingredient)
+    return result
 
 
-tea = selector(tea_type)
-fruit = selector(fruits)
-spice = selector(spices)
+def create_tea():
+    rand_num1 = random.randint(1, 2)
+    rand_num2 = random.randint(1, 2)
+    select_ingredients(tea_type)
+    if rand_num1 == 2:
+        select_ingredients(fruits)
+        select_ingredients(fruits)
+    else:
+        select_ingredients(fruits)
+    if rand_num2 == 2:
+        select_ingredients(spices)
+        select_ingredients(spices)
+    else:
+        select_ingredients(spices)
 
-# Print tea
-print("Your tea is " + tea + " with " + fruit + " and " + spice)
+
+create_tea()
+
+# Remove duplicates from array
+result = list(dict.fromkeys(result))
+
+# Add words to array to complete the sentence
+result.insert(0, "Here is your")
+result.insert(2, "with")
+result.insert(-1, "and")
+
+
+# Turn array to string
+def stringify(array):
+    string = " "
+    return (string.join(array))
+
+
+print(stringify(result))
