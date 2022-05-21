@@ -4,7 +4,7 @@ import datetime
 # Tea library
 coffeinated_tea = ["Black tea", "Green tea", "White tea",
                    "Macha tea", "Oolong tea", "Yerba mate tea"]
-decaf_tea = ["Rooibus tea", "Herbal tea", "Fruit tea", "Mint tea"]
+decaf_tea = ["Rooibus tea", "Herbal tea", "Fruit tea"]
 
 # Fruit library
 winter_fruits = ["orange", "cranberry", "tanerine", "kiwi"]
@@ -36,7 +36,7 @@ else:
 
 if month == "12" or month == "01" or month == "02":
     fruits = winter_fruits
-    spices = winter_fruits
+    spices = winter_spices
 elif month == "03" or month == "04" or month == "05":
     fruits = spring_fruits
     spices = spring_spices
@@ -47,17 +47,18 @@ elif month == "09" or month == "10" or month == "11":
     fruits = autumn_fruits
     spices = autumn_spices
 
-# Select a tea
-random_tea_num = random.randint(0, len(tea_type)-1)
-tea = tea_type[random_tea_num]
+# Selecting ingridients
 
-# Select fruit
-random_fruit_num = random.randint(0, len(fruits)-1)
-fruit = fruits[random_fruit_num]
 
-# Select spice
-random_spice_num = random.randint(0, len(spices)-1)
-spice = spices[random_spice_num]
+def selector(array):
+    random_num = random.randint(0, len(array)-1)
+    ingredient = array[random_num]
+    return ingredient
+
+
+tea = selector(tea_type)
+fruit = selector(fruits)
+spice = selector(spices)
 
 # Print tea
 print("Your tea is " + tea + " with " + fruit + " and " + spice)
