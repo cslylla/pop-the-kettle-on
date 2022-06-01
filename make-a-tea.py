@@ -10,7 +10,7 @@ decaf_tea = ["Rooibus tea", "Herbal tea", "Fruit tea"]
 winter_fruits = ["orange", "cranberry", "tanerine", "kiwi"]
 spring_fruits = ["strawberry", "wildberry",
                  "blueberry", "ruhbarb", "apricot", "cherry"]
-summer_fruits = ["pine apple", "banana", "lemon",
+summer_fruits = ["pineapple", "banana", "lemon",
                  "lime", "peach", "melone", "pomegranate"]
 autumn_fruits = ["pumpkin", "apple", "pear", "grape", "grapefruit"]
 
@@ -52,9 +52,6 @@ elif month == "09" or month == "10" or month == "11":
     fruits = autumn_fruits
     spices = autumn_spices
 
-# Selecting ingridients
-result = []
-
 
 def select(array):
     random_num = random.randint(0, len(array)-1)
@@ -62,9 +59,16 @@ def select(array):
     return item_from_array
 
 
+# Selecting name
+name = select(name_first).capitalize() + " " + select(name_second).capitalize()
+
+# Selecting ingridients
+result = []
+
+
 def create_tea():
-    rand_num1 = random.randint(1, 2)
     result.append(select(tea_type))
+    rand_num1 = random.randint(1, 2)
     i = 1
     while i <= rand_num1:
         result.append(select(fruits))
@@ -82,15 +86,15 @@ create_tea()
 result = list(dict.fromkeys(result))
 
 # Add words to array to complete the sentence
-result.insert(0, "Here is your")
-result.insert(2, "with")
+result.insert(1, "with")
 result.insert(-1, "and")
 
-
 # Turn array to string
+
+
 def stringify(array):
     string = " "
     return (string.join(array))
 
 
-print(stringify(result))
+print("Your tea is " + name + ". " + stringify(result) + ". Enjoy it!")
