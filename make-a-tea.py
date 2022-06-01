@@ -24,6 +24,11 @@ summer_spices = ["lemon grass", "mint", "rose",
 autumn_spices = ["toffee", "honeycomb", "honey",
                  "apple strudel", "ginger bread", "almond"]
 
+# Name library
+name_first = ["cozy", "lazy", "tasty",
+              "smooth", "dark", "starry", "melancholic", "warm", "cold", "fuzzy", "jelly", "dozy", "sparkly", "enchanted", "lady", "lord", "turkish", "russian", "exotic", "old"]
+name_second = ["bonfire", "hug", "duvet", "kiss", "cuppa", "cake", "sorbet", "girl",
+               "boy", "unicorn", "brew", "blend", "tea", "breeze", "rock", "love", "universe"]
 # Conditions
 current_time = datetime.datetime.now()
 time_of_day = current_time.strftime("%p")
@@ -51,27 +56,24 @@ elif month == "09" or month == "10" or month == "11":
 result = []
 
 
-def select_ingredients(array):
+def select(array):
     random_num = random.randint(0, len(array)-1)
-    ingredient = array[random_num]
-    result.append(ingredient)
-    return result
+    item_from_array = array[random_num]
+    return item_from_array
 
 
 def create_tea():
     rand_num1 = random.randint(1, 2)
+    result.append(select(tea_type))
+    i = 1
+    while i <= rand_num1:
+        result.append(select(fruits))
+        i += 1
     rand_num2 = random.randint(1, 2)
-    select_ingredients(tea_type)
-    if rand_num1 == 2:
-        select_ingredients(fruits)
-        select_ingredients(fruits)
-    else:
-        select_ingredients(fruits)
-    if rand_num2 == 2:
-        select_ingredients(spices)
-        select_ingredients(spices)
-    else:
-        select_ingredients(spices)
+    j = 1
+    while j <= rand_num2:
+        result.append(select(spices))
+        j += 1
 
 
 create_tea()
