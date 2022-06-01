@@ -22,7 +22,7 @@ python make-a-tea.py
 The final result will be printed on the screen as (examle):
 
 ```text
-Here is your Herbal tea with wildberry chamomile and jasmine 
+Your tea is Russian Rock. Rooibus tea with melone banana and orange zest. Enjoy it! 
 ```
 
 Enjoy your tea!
