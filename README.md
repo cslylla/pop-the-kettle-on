@@ -19,7 +19,7 @@ Run the program in the terminal with the following command:
 python make-a-tea.py
 ```
 
-The final result will be printed on the screen as (examle):
+The final result will be printed on the screen as (example):
 
 ```text
 Your tea is Russian Rock. Rooibus tea with melone banana and orange zest. Enjoy it! 
